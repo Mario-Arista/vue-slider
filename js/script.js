@@ -40,7 +40,7 @@ createApp({
     },
     
     // Avvio autoplay
-    prova() {
+    mounted() {
 
         this.autoplay();
     },
@@ -79,9 +79,13 @@ createApp({
 
         // Avvio autoplay ogni 3 secondi
         autoplay() {
+            let prova = this; 
 
-            setInterval(this.nextArrow(), 1000);
-        },
+            setInterval(function() {
+                prova.nextArrow(); 
+            }, 3000); 
+            
+        }
 
     }
 
