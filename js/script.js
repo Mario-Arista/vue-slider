@@ -65,6 +65,11 @@ createApp({
 
         },
 
+        activeSlide(index) {
+            this.slideCounter = index;
+            console.log(index);
+        },
+
     }
 
 }).mount('#app');
