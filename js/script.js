@@ -38,14 +38,15 @@ createApp({
 
         }
     },
+    
+    // Avvio autoplay
+    prova() {
 
+        this.autoplay();
+    },
+    
     methods: {
 
-        // Prova di intervallo
-        autoplay() {
-
-            setInterval(nextArrow, 3000);
-        },
 
         // Cambio slide su freccia rivolta verso giù
         nextArrow() {
@@ -76,8 +77,11 @@ createApp({
             
         },
 
+        // Avvio autoplay ogni 3 secondi
+        autoplay() {
 
-
+            setInterval(this.nextArrow(), 1000);
+        },
 
     }
 
