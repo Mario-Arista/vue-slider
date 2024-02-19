@@ -41,8 +41,30 @@ createApp({
 
     methods: {
 
-        // Inserire metodi
+        // Cambio slide su freccia rivolta verso giù
+        nextArrow() {
+            this.slideCounter++;
+
+           // controllo che l'indice non vada oltre lo zero 
+           if (this.slideCounter >= this.slides.length) {
+            this.slideCounter = 0;
+        }
+ 
+        },
+
+        // Cambio slide su freccia rivolta verso sù
+        prevArrow() {
+
+            this.slideCounter--;
+
+            // Controllo che l'indice non vada oltre l'ultima immagine
+            if (this.slideCounter < 0) {
+                this.slideCounter = this.slides.length - 1;
+            }
+ 
+
+        },
 
     }
-    
+
 }).mount('#app');
