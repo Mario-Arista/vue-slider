@@ -41,6 +41,12 @@ createApp({
 
     methods: {
 
+        // Prova di intervallo
+        autoplay() {
+
+            setInterval(nextArrow, 3000);
+        },
+
         // Cambio slide su freccia rivolta verso giù
         nextArrow() {
             this.slideCounter++;
@@ -67,8 +73,11 @@ createApp({
 
         activeSlide(index) {
             this.slideCounter = index;
-            console.log(index);
+            
         },
+
+
+
 
     }
 
