@@ -7,6 +7,9 @@ createApp({
             // variabile per la slide attiva
             slideCounter: 0,
 
+            // valore flag per stop e autoplay
+            activeAutoplay: true,
+
             // Array 
             slides: [
                 {
@@ -47,6 +50,27 @@ createApp({
     
     methods: {
 
+        // Avvio autoplay ogni 3 secondi
+        autoplay() {
+            // Valore flag activeAutoplay
+            if (this.activeAutoplay) {
+
+                this.autoplayInterval = setInterval(() => {
+                    this.nextArrow(); 
+                }, 3000); 
+            }  
+        },
+
+        // Stop dell'autoplay
+        stop() {
+
+            // Valore flag activeAutoplay
+            if (!this.activeAutoplay) {
+
+                clearInterval(this.autoplayInterval);
+            }  
+            
+        },
 
         // Cambio slide su freccia rivolta verso giù
         nextArrow() {
@@ -77,15 +101,6 @@ createApp({
             
         },
 
-        // Avvio autoplay ogni 3 secondi
-        autoplay() {
-            let prova = this; 
-
-            setInterval(function() {
-                prova.nextArrow(); 
-            }, 3000); 
-            
-        }
 
     }
 
