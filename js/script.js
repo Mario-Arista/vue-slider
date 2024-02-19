@@ -8,7 +8,7 @@ createApp({
             slideCounter: 0,
 
             // valore flag per stop e autoplay
-            activeAutoplay: true,
+            activeAutoplay: false,
 
             // Array 
             slides: [
@@ -53,7 +53,7 @@ createApp({
         // Avvio autoplay ogni 3 secondi
         autoplay() {
             // Valore flag activeAutoplay
-            if (this.activeAutoplay) {
+            if (!this.activeAutoplay) {
 
                 this.autoplayInterval = setInterval(() => {
                     this.nextArrow(); 
@@ -65,10 +65,21 @@ createApp({
         stop() {
 
             // Valore flag activeAutoplay
+            this.activeAutoplay = false;
+
+            clearInterval(this.autoplayInterval);
+             
+            
+        },
+
+        // Riprende l'autoplay
+        resume() {
+            
             if (!this.activeAutoplay) {
 
-                clearInterval(this.autoplayInterval);
-            }  
+                this.activeAutoplay = true;
+                this.autoplay();
+            }
             
         },
 

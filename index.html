@@ -18,8 +18,8 @@
 
         <div class="container">
             <div class="slider-wrapper" tabindex="0"
-                v-on:mouseover="stop()"
-                v-on:mouseleave="autoplay()" >
+                @mouseenter='stop()'
+                @mouseleave='resume()' >
 
                 <div 
                     v-for="(currentSlide, index) in slides"
@@ -52,7 +52,8 @@
                     <div
                         v-for="(slide, index) in slides"
                         class="thumb"
-                        @click='activeSlide(index)' >
+                        @click='activeSlide(index)'
+                        :class="{ active: slideCounter === index }" >
                         <img :src='slide.image'
                         :alt='slide.title' />
                     </div>
