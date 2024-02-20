@@ -18,12 +18,12 @@
 
         <div class="container">
             <div class="slider-wrapper" tabindex="0"
-                @mouseenter='stop()'
-                @mouseleave='resume()' >
+                @mouseenter='stopAutoplay()'
+                @mouseleave='autoplay()' >
 
                 <div 
                     v-for="(currentSlide, index) in slides"
-                    v-show="index === slideCounter"
+                    v-show="index == slideCounter"
                     class="item">
                     <img 
                         :src='slides[slideCounter].image'

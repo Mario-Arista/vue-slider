@@ -8,7 +8,7 @@ createApp({
             slideCounter: 0,
 
             // valore flag per stop e autoplay
-            activeAutoplay: false,
+            autoPlay: 0,
 
             // Array 
             slides: [
@@ -45,42 +45,18 @@ createApp({
     // Avvio autoplay
     mounted() {
 
-        this.autoplay();
+        this.autoPlay()
+
     },
     
     methods: {
-
-        // Avvio autoplay ogni 3 secondi
+        
         autoplay() {
-            // Valore flag activeAutoplay
-            if (!this.activeAutoplay) {
-
-                this.autoplayInterval = setInterval(() => {
-                    this.nextArrow(); 
-                }, 3000); 
-            }  
+            this.autoPlay = setInterval(this.nextArrow, 3000);
         },
 
-        // Stop dell'autoplay
-        stop() {
-
-            // Valore flag activeAutoplay
-            this.activeAutoplay = false;
-
-            clearInterval(this.autoplayInterval);
-             
-            
-        },
-
-        // Riprende l'autoplay
-        resume() {
-            
-            if (!this.activeAutoplay) {
-
-                this.activeAutoplay = true;
-                this.autoplay();
-            }
-            
+        stopAutoplay() {
+            clearInterval(this.autoPlay);
         },
 
         // Cambio slide su freccia rivolta verso giù
